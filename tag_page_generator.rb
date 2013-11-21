@@ -5,7 +5,7 @@ module Tag
     def generate(site)
 
       site.tags.each do |tag, posts|
-					print "would have done: site.pages << TagPage.new(#{site}, #{tag}, #{posts})"
+					#print "would have done: site.pages << TagPage.new(#{site}, #{tag}, #{posts})"
 					site.pages << TagPage.new(site, tag, posts)
         #site.pages << TagPage.new(site, tag, posts)
 			#	posts.each { |p|
@@ -54,7 +54,7 @@ EOS
     end
 
     def render(layouts, site_payload)
-			print "in render #{layouts}, #{site_payload}"
+			#print "in render #{layouts}, #{site_payload}"
       payload = {
         "page" => self.to_liquid,
         "paginator" => pager.to_liquid
@@ -74,7 +74,7 @@ EOS
     end
 
     def write(dest_prefix, dest_suffix = nil)
-			print "in write #{dest_prefix}.#{dest_suffix}"
+			#print "in write #{dest_prefix}.#{dest_suffix}"
       dest = dest_prefix
       dest = File.join(dest, dest_suffix) if dest_suffix
       path = File.join(dest, CGI.unescape(self.url))
